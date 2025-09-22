@@ -1,14 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Movies from "./pages/Movies";
+import Rentals from "./pages/Rentals";
+import MovieDetails from "./pages/MovieDetails";
+import Toast from "./components/Toast";
 
-function App() {
-  return (
-    <div className="bg-blue-500 text-white h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-bold">StreamFlix is Alive 🎬</h1>
-    </div>
-  );
+export default function App() {
+	console.log("App mounted - TODO: add toast provider");
+
+	return (
+		<BrowserRouter>
+			<Navbar />
+			<Routes>
+				<Route path="/" element={<Movies />} />
+				<Route path="/rentals" element={<Rentals />} />
+				<Route path="/movie/:id" element={<MovieDetails />} />
+			</Routes>
+			<Toast message="Welcome to StreamFlix MVP!" onClose={() => {}} />
+		</BrowserRouter>
+	);
 }
-
-export default App
