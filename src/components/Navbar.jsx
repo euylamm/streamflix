@@ -1,16 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
 export default function Navbar() {
+	console.log("Navbar mounted - TODO: implement links");
+
 	return (
-		<nav className="bg-gray-800 text-white p-4">
-			<div className="max-w-6xl mx-auto flex items-center justify-between">
-				<div className="text-xl font-bold">StreamFlix</div>
-				<div className="flex gap-4">
-					<Link to="/movies" className="hover:underline">Movies</Link>
-					<Link to="/rentals" className="hover:underline">My Rentals</Link>
-				</div>
-			</div>
+		<nav className="bg-gray-900 text-white p-4 flex gap-4">
+			<a href="/" className="hover:underline">Home</a>
+			<a href="/rentals" className="hover:underline">My Rentals</a>
 		</nav>
 	);
 }

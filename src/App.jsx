@@ -1,20 +1,22 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Movies from './pages/Movies';
-import Rentals from './pages/Rentals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Movies from "./pages/Movies";
+import Rentals from "./pages/Rentals";
+import MovieDetails from "./pages/MovieDetails";
+import Toast from "./components/Toast";
 
 export default function App() {
-    return (
-        <div className="min-h-screen">
-            <Navbar />
-            <main className="max-w-6xl mx-auto p-4">
-                <Routes>
-                    <Route path="/" element={<Navigate to="/movies" replace />} />
-                    <Route path="/movies" element={<Movies />} />
-                    <Route path="/rentals" element={<Rentals />} />
-                </Routes>
-            </main>
-        </div>
-    );
+	console.log("App mounted - TODO: add toast provider");
+
+	return (
+		<BrowserRouter>
+			<Navbar />
+			<Routes>
+				<Route path="/" element={<Movies />} />
+				<Route path="/rentals" element={<Rentals />} />
+				<Route path="/movie/:id" element={<MovieDetails />} />
+			</Routes>
+			<Toast message="Welcome to StreamFlix MVP!" onClose={() => {}} />
+		</BrowserRouter>
+	);
 }

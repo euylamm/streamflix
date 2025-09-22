@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global styles */
 body {
-    @apply bg-gray-100;
+    @apply bg-gray-900 text-white font-sans;
+}
+
+a {
+    @apply text-blue-400 hover:underline;
 }
